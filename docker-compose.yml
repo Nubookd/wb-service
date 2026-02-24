@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: wb_tariffs
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -20,12 +20,14 @@ services:
       retries: 5
 
   app:
-    build: https://github.com/Nubookd/wb-service-test.git
+    build: .
     container_name: wb_app
     restart: unless-stopped
     depends_on:
       postgres:
         condition: service_healthy
+    env_file:
+      - .env.example
     environment:
       NODE_ENV: production
       DB_HOST: postgres
