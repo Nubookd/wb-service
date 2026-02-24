@@ -1,0 +1,24 @@
+{
+  "name": "wb-tariffs-service",
+  "version": "1.0.0",
+  "description": "Service for collecting WB tariffs and exporting to Google Sheets",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "migrate": "knex migrate:latest",
+    "migrate:make": "knex migrate:make",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "knex": "^3.0.1",
+    "pg": "^8.11.3",
+    "axios": "^1.6.2",
+    "googleapis": "^129.0.0",
+    "dotenv": "^16.3.1",
+    "node-cron": "^3.0.3",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
